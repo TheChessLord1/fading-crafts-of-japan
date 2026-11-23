@@ -1,0 +1,156 @@
+/* =========================================================
+   Fading Crafts of Japan - one stylesheet for every page
+   ========================================================= */
+
+/* Roboto is stored in the fonts folder, so a visitor's browser
+   does not need to contact any other website to load it. */
+@font-face { font-family: Roboto; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/roboto-latin.woff2) format("woff2"); }
+@font-face { font-family: Roboto; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/roboto-italic-latin.woff2) format("woff2"); }
+/* These two contain special letters such as ō and ū */
+@font-face { font-family: Roboto; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/roboto-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+@font-face { font-family: Roboto; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url(../fonts/roboto-italic-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+
+/* ---- Colours: change them here and the whole site changes ---- */
+:root {
+  --bright-blue: #3B82F6;
+  --light-blue: #DEEBFE;
+  --page-grey: #EFEFEF;
+  --box-white: #FFFFFF;
+  --border-grey: #D3D3D3;
+  --text: #000000;
+  --link: #1D4ED8;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page-grey);
+  color: var(--text);
+  font: 16px/1.65 Roboto, Arial, sans-serif;
+  overflow-wrap: break-word;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--link); }
+a:focus-visible, input:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+h1, h2, h3 { line-height: 1.25; font-weight: 700; }
+h2 { font-size: 24px; margin: 0 0 12px; }
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-left: 22px; }
+li { margin-bottom: 8px; }
+i { font-style: italic; }            /* craft names */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* "Skip to content" link: only appears for keyboard users */
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--box-white); padding: 8px 14px; z-index: 2; }
+
+/* ---- Header: coloured bar with a white title box ---- */
+header { background: var(--light-blue); padding: 44px 24px; text-align: center; }
+.home header { /* blue fades gently into light blue */
+  background: linear-gradient(var(--bright-blue) 72%, var(--light-blue));
+  padding-bottom: 68px;
+}
+.title-box {
+  display: inline-block;             /* the box grows to fit the title */
+  max-width: 100%;
+  margin: 0;
+  padding: 18px 44px;
+  background: var(--box-white);
+  font-size: 36px;
+}
+
+/* ---- Navigation bar ---- */
+nav { background: linear-gradient(var(--light-blue), var(--page-grey)); padding: 8px 16px 20px; }
+.home nav { background: var(--light-blue); }
+nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+}
+nav li { margin: 0; }
+nav a { display: block; padding: 10px 16px; color: var(--text); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+nav a[aria-current="page"] { background: var(--box-white); font-weight: 700; }
+
+/* ---- Homepage ---- */
+.intro { /* light blue fades gently into the grey page */
+  background: linear-gradient(var(--light-blue) 88%, var(--page-grey));
+  padding: 32px 0 72px;
+}
+.intro-parts { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.intro p + h2 { margin-top: 28px; }
+.search { margin-top: 44px; }
+.search input {
+  width: 100%; padding: 16px 20px;
+  background: var(--box-white); color: var(--text);
+  border: 1px solid var(--border-grey); border-radius: 0;
+  font: inherit;
+}
+.search input::placeholder { color: #595959; opacity: 1; }
+.craft-list { padding-top: 40px; padding-bottom: 40px; }
+.craft-row {
+  display: grid; grid-template-columns: 220px 220px 1fr; gap: 36px; align-items: center;
+  padding: 18px; margin-bottom: 20px;
+  color: var(--text); text-decoration: none;
+}
+.craft-row[hidden] { display: none; }
+.craft-row:hover h3 { text-decoration: underline; }
+.craft-row h3 { margin: 0; font-size: 21px; }
+.craft-row p { margin: 0; }
+.craft-row .image-box img, .craft-row .placeholder { width: 100%; height: 136px; object-fit: cover; }
+
+/* ---- White image boxes, captions and placeholders ---- */
+figure { margin: 0; }
+.image-box { background: var(--box-white); padding: 12px; }
+figcaption { font-size: 14px; line-height: 1.5; padding-top: 10px; }
+.big-image { max-width: 720px; margin: 28px auto 56px; }
+.big-image img { margin: 0 auto; max-height: 520px; width: auto; }
+.placeholder {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 16px; min-height: 130px;
+  background: var(--box-white); font-size: 20px;
+}
+.big-image .placeholder { min-height: 280px; font-size: 26px; }
+
+/* ---- Inner pages: two columns ---- */
+main { display: block; }
+.inner { padding-top: 32px; padding-bottom: 72px; }
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 64px 72px; }
+.columns > * { min-width: 0; }
+.back { display: inline-block; padding: 10px 18px; background: var(--box-white); color: var(--text); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.box { background: var(--box-white); padding: 24px 28px; }
+.box > :last-child { margin-bottom: 0; }
+.space-above { margin-top: 64px; }
+
+/* Big number boxes on the Impact page */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0 0 64px; }
+.stat { background: var(--box-white); padding: 24px 16px; text-align: center; }
+.stat strong { display: block; font-size: 32px; line-height: 1.2; margin-bottom: 8px; }
+.stat span { display: block; font-size: 15px; line-height: 1.45; }
+
+/* Placeholder text that still needs to be filled in */
+.todo { background: var(--box-white); padding: 18px; border: 2px dashed #767676; }
+
+footer { padding: 28px 24px 36px; text-align: center; font-size: 14px; }
+footer p { margin: 0; }
+
+/* ---- Phones and small screens: everything becomes one column ---- */
+@media (max-width: 760px) {
+  header { padding: 28px 16px; }
+  .home header { padding-bottom: 48px; }
+  .title-box { font-size: 32px; padding: 14px 22px; }
+  nav { padding: 4px 8px 16px; }
+  nav ul { gap: 2px; }
+  nav a { padding: 8px 9px; font-size: 15px; }
+  .wrap { padding-left: 18px; padding-right: 18px; }
+  .intro-parts, .columns { grid-template-columns: 1fr; gap: 40px; }
+  .craft-row { grid-template-columns: 1fr; gap: 12px; padding: 0; margin-bottom: 44px; }
+  .craft-row .image-box img, .craft-row .placeholder { height: 190px; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .stat { padding: 18px 10px; }
+  .stat strong { font-size: 26px; }
+}
