@@ -37,7 +37,7 @@ Only use photos with a free licence (for example from Wikimedia Commons).
 
 ## Updating the live site
 
-**If the site is connected to GitHub:** save your edits, then
+The site is hosted free on GitHub Pages. Save your edits, then
 
 ```
 git add .
@@ -45,9 +45,10 @@ git commit -m "Describe what changed"
 git push
 ```
 
-Vercel updates the site by itself in about a minute.
+GitHub updates the site by itself in a minute or two.
 
-**If it was deployed with the Vercel command line:** save and commit, then run
-`npx vercel --prod`.
+The links in `404.html` start with `/fading-crafts-of-japan/` because that is the
+repository name. If you rename the repository, change them too.
+`vercel.json` is only used if the site is moved to Vercel later.
 
 Never put passwords or personal details in these files.
