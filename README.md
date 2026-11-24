@@ -23,13 +23,13 @@ Plain HTML, CSS and JavaScript. There is nothing to install or build.
 - The menu and footer are repeated in every page. If you change them, change every page.
 - To see a page on your computer, double-click its `.html` file.
 
-## Adding one of the missing photos
+## Changing or adding a photo
 
 Only use photos with a free licence (for example from Wikimedia Commons).
 
 1. Make a big copy (under 200 KB, up to 960px wide) in `images/`
    and a small copy (400px wide) in `images/small/`.
-2. In `index.html`, replace the `placeholder` box in that craft's row with an `<img>`,
+2. In `index.html`, change the `<img>` in that craft's row,
    copying the way another row does it. Remember the alt text.
 3. In the craft's page, replace the `<figure>` with one copied from another craft page.
    Change the picture, caption, author, licence and link.
