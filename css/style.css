@@ -107,7 +107,7 @@ figure { margin: 0; }
 .image-box { background: var(--box-white); padding: 12px; }
 figcaption { font-size: 14px; line-height: 1.5; padding-top: 10px; }
 .big-image { max-width: 720px; margin: 28px auto 56px; }
-.big-image img { margin: 0 auto; max-height: 520px; width: auto; }
+.big-image img { width: 100%; max-height: 520px; object-fit: contain; }
 .placeholder {
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 16px; min-height: 130px;
